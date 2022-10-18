@@ -1,3 +1,9 @@
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Baloise-CodeCamp-2022_devopsmon_remote_control&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Baloise-CodeCamp-2022_devopsmon_remote_control)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Baloise-CodeCamp-2022_devopsmon_remote_control&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Baloise-CodeCamp-2022_devopsmon_remote_control)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Baloise-CodeCamp-2022_devopsmon_remote_control&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Baloise-CodeCamp-2022_devopsmon_remote_control)
+[![Vulnerabilities](https://lift.sonatype.com/api/badge/github.com/Baloise-CodeCamp-2022/devopsmon_remote_control)](https://lift.sonatype.com/results/github.com/Baloise-CodeCamp-2022/devopsmon_remote_control/)
+
 # devopsmon_remote_control
 Basic repository for devops monitoring remote control
 
