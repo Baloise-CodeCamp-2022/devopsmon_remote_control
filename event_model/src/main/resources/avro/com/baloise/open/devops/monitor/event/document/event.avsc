@@ -1,0 +1,43 @@
+{
+  "name": "Event",
+  "namespace": "com.baloise.open.devops.monitor.event",
+  "type": "record",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string"
+    },
+    {
+      "name": "traceId",
+      "type": [
+        "null",
+        {
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "situation",
+      "type": "Situation"
+    },
+    {
+      "name": "affected",
+      "type": "AffectedSystem"
+    }
+    ,
+    {
+      "name": "reported",
+      "type": "ReportingSystem"
+    },
+    {
+      "name": "specific",
+      "type": [
+        "null",
+        {
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
+
