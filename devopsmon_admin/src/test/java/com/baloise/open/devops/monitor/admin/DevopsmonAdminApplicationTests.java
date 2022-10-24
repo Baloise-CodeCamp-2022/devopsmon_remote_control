@@ -1,0 +1,40 @@
+package com.baloise.open.devops.monitor.admin;
+
+import com.baloise.open.devops.monitor.admin.infrastructure.web.model.EventDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.UUID;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class DevopsmonAdminApplicationTests {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    void givenEvent_whenSent_thenKafkaStored() throws Exception{
+        EventDto event = EventDto.builder()
+                .id(UUID.randomUUID())
+                .traceId("12345678")
+                .build();
+        mockMvc.perform(MockMvcRequestBuilders.post("/admin/create")
+                .contentType("application/json")
+                .content(objectMapper.writeValueAsString(event)))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+}
