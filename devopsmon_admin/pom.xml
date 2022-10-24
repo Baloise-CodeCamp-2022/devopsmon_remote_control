@@ -8,7 +8,7 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.baloise.open.devops.monitor.admin</groupId>
+    <groupId>com.baloise.open.devops</groupId>
     <artifactId>devopsmon-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>devopsmon_admin</name>
