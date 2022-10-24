@@ -1,0 +1,42 @@
+{
+  "name": "Event",
+  "namespace": "com.baloise.open.devops.monitor.event",
+  "type": "record",
+  "fields": [
+    {
+      "name": "changeType",
+      "type": {
+        "type": "enum",
+        "name": "ChangeType",
+        "symbols": [
+          "CREATE",
+          "UPDATE",
+          "DELETE"
+        ]
+      }
+    },
+    {
+      "name": "bpNr",
+      "type": "string"
+    },
+    {
+      "name": "productNr",
+      "type": [
+        "null",
+        {
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "affected",
+      "type": "AffectedSystem"
+    }
+    ,
+    {
+      "name": "reported",
+      "type": "ReportedSystem"
+    }
+  ]
+}
+
