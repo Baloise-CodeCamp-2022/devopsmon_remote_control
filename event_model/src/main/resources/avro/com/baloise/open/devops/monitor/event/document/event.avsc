@@ -4,23 +4,11 @@
   "type": "record",
   "fields": [
     {
-      "name": "changeType",
-      "type": {
-        "type": "enum",
-        "name": "ChangeType",
-        "symbols": [
-          "CREATE",
-          "UPDATE",
-          "DELETE"
-        ]
-      }
-    },
-    {
-      "name": "bpNr",
+      "name": "uuid",
       "type": "string"
     },
     {
-      "name": "productNr",
+      "name": "traceId",
       "type": [
         "null",
         {
@@ -29,13 +17,26 @@
       ]
     },
     {
+      "name": "situation",
+      "type": "Situation"
+    },
+    {
       "name": "affected",
       "type": "AffectedSystem"
     }
     ,
     {
       "name": "reported",
-      "type": "ReportedSystem"
+      "type": "ReportingSystem"
+    },
+    {
+      "name": "specific",
+      "type": [
+        "null",
+        {
+          "type": "string"
+        }
+      ]
     }
   ]
 }

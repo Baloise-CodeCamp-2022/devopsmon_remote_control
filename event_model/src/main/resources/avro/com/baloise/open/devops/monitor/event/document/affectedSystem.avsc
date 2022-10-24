@@ -4,42 +4,12 @@
   "type": "record",
   "fields": [
     {
-      "name": "type",
+      "name": "instanceId",
       "type": "string"
     },
     {
-      "name": "name",
+      "name": "location",
       "type": "string"
-    },
-    {
-      "name": "createdAt",
-      "type": [
-        "null",
-        {
-          "type": "int",
-          "logicalType": "date"
-        }
-      ]
-    },
-    {
-      "name": "signedAt",
-      "type": [
-        "null",
-        {
-          "type": "int",
-          "logicalType": "date"
-        }
-      ]
-    },
-    {
-      "name": "archivedAt",
-      "type": [
-        "null",
-        {
-          "type": "int",
-          "logicalType": "date"
-        }
-      ]
     }
   ]
 }

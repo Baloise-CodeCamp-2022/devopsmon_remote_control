@@ -1,10 +1,13 @@
 {
   "namespace": "com.baloise.open.devops.monitor.event",
   "type": "record",
-  "name": "ReportedSystem",
+  "name": "ReportingSystem",
   "fields": [
     {
-      "name": "partnerNr",
+      "name": "instanceId",
+      "type": "string"
+    },{
+      "name": "location",
       "type": "string"
     }
   ]

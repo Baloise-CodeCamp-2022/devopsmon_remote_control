@@ -1,0 +1,41 @@
+{
+  "namespace": "com.baloise.open.devops.monitor.event",
+  "type": "record",
+  "name": "Situation",
+  "fields": [
+    {
+      "name": "tags",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "tag",
+          "type": "record",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "initiator",
+      "type": "string"
+    },
+    {
+      "name": "archivedAt",
+      "type": [
+        "null",
+        {
+          "type": "int",
+          "logicalType": "date"
+        }
+      ]
+    }
+  ]
+}
