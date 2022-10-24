@@ -23,6 +23,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 
         <springdoc.version>1.6.12</springdoc.version>
+        <kafka-avro-serializer>7.2.1</kafka-avro-serializer>
     </properties>
 
     <dependencies>
@@ -59,12 +60,25 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Project -->
+        <dependency>
+            <groupId>com.baloise.open.devops</groupId>
+            <artifactId>event_model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <version>${kafka-avro-serializer}</version>
+        </dependency>
+
         <!-- Open-API -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc.version}</version>
         </dependency>
+
         <!--dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-security</artifactId>
@@ -109,6 +123,17 @@
         </plugins>
     </build>
     <repositories>
+        <repository>
+            <id>confluent</id>
+            <name>Confluent</name>
+            <url>https://packages.confluent.io/maven/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
