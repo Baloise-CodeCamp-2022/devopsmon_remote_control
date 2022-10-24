@@ -22,26 +22,7 @@ import org.springframework.context.annotation.Configuration;
                                 @ExtensionProperty(name = "x-api-id", value = "${springdoc.api-info.header.api-id}"),
                         }
                 )),
-        servers = {@Server(url = "${server.servlet.context-path}", description = "Local, used for development.")}
+        servers = {@Server(url = "/", description = "Local, used for development.")}
 )
-//@SecurityScheme(
-//        name = "security_auth",
-//        description = "Used for complete internal access over RHSSO",
-//        type = SecuritySchemeType.OAUTH2,
-//        flows = @OAuthFlows(
-//                authorizationCode = @OAuthFlow(
-//                        authorizationUrl = "${springdoc.oAuthFlow.authorizationUrl}",
-//                        tokenUrl = "${springdoc.oAuthFlow.tokenUrl}",
-//                        refreshUrl = "${springdoc.oAuthFlow.refreshUrl}"
-//                )
-//        )
-//)
-//@SecurityScheme(
-//        name = "api_key_auth",
-//        description = "Used for access over the Enterprise Gateway (Layer7)",
-//        type = SecuritySchemeType.APIKEY,
-//        in = SecuritySchemeIn.HEADER,
-//        paramName = "x-api-key"
-//)
 public class OpenApiConfig {
 }

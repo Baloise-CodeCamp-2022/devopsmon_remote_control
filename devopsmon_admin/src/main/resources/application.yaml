@@ -1,1 +1,10 @@
-
+springdoc:
+  api-info:
+    title: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    contact.name: DevopsMonitor Team
+    contact.email: tbd
+    contact.url: https://github.com/orgs/Baloise-CodeCamp-2022/projects/1/views/1
+    header.audience: public
+    header.api-id: tbd

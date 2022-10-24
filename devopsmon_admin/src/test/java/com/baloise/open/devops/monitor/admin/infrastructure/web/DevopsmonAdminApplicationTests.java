@@ -1,4 +1,4 @@
-package com.baloise.open.devops.monitor.admin;
+package com.baloise.open.devops.monitor.admin.infrastructure.web;
 
 import com.baloise.open.devops.monitor.admin.infrastructure.web.model.EventDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
