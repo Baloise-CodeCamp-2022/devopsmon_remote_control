@@ -62,6 +62,16 @@ If you like to use the Kafka or Zookeeper binary tools you have to download them
 - [Kafka](https://kafka.apache.org/downloads)
 - [Zookeeper](https://zookeeper.apache.org/releases.html)
 
+# Process during Code Camp
+
+- We wanted to use http://micrometer.io to create metrics and use them in kafka to react on them
+  - Currently there are no easy/out of the box ways to log the data to a kafka topic (see: https://micrometer.io/docs)
+  - Thats why we did some research and recognized that logging to a tool like prometheus would not fit our needs bc:
+    - We need create Kafka Messages to automatically react on them (e.g. an application should listen on them and trigger other actions like restarts)
+  - Agreed on :
+    - Doing the aggregation of the logging on our own with kafka streams
+    - Not use micrometer since we can not easily log into kafka
+
 # References
 - [Confluentic Info][Confluentic Info]
 - [Kafka Connect REST API][Kafka Connect REST API]
