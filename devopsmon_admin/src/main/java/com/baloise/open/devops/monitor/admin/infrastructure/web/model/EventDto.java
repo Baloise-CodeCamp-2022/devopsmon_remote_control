@@ -12,4 +12,8 @@ import java.util.UUID;
 public class EventDto {
     private UUID id;
     private String traceId;
+    private SituationDto situation;
+    private SystemDto affectedSystem;
+    private SystemDto reportingSystem;
+    private String specific;
 }

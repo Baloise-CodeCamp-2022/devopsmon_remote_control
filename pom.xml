@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>devopsmon_admin</module>
+        <module>event_model</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -20,10 +20,15 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>Baloise-CodeCamp-2022_devopsmon_admin</sonar.projectKey>
         <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
         <springdoc.version>1.6.12</springdoc.version>
         <kafka-avro-serializer>7.2.1</kafka-avro-serializer>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
@@ -79,6 +84,12 @@
             <version>${springdoc.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
         <!--dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-security</artifactId>
@@ -108,6 +119,28 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <!-- other annotation processors -->
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
