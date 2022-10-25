@@ -1,8 +1,10 @@
 package com.baloise.open.devops.monitor.admin.infrastructure.web.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -10,9 +12,26 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SituationDto {
+    @Schema(description = "Name describing the event sufficiently.",
+            example ="Service started",
+            required = true)
     private String name;
+
+    @Schema(description = "Identifier describing the user or system/ service sufficiently, that caused this event.",
+            example ="Service started",
+            required = true)
     private String initiator;
-    private LocalDate createdAt;
+
+    @Schema(description = "Timestamp when the event was created.",
+            example ="Service started",
+            required = true)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime createdAt;
+
+    @Schema(description = "Collection of tags that can be used to describe teh event in more detail, such as GWR, error, etc.",
+            example ="life-cycle, GWR")
     private List<String> tags;
 }

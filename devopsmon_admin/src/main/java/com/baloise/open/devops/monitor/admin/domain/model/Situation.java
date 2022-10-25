@@ -2,7 +2,7 @@ package com.baloise.open.devops.monitor.admin.domain.model;
 
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -13,6 +13,6 @@ import java.util.List;
 public class Situation {
     private String name;
     private String initiator;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     private List<String> tags;
 }

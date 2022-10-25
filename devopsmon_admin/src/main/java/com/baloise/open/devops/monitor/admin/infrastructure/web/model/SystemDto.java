@@ -7,7 +7,8 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SystemDto {
     private String instanceId;
-    private String location;
 }

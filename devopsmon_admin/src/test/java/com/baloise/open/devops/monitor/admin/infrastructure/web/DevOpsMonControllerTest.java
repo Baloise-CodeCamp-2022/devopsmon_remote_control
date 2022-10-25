@@ -12,11 +12,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.UUID;
-
 @SpringBootTest
 @AutoConfigureMockMvc
-class DevopsmonAdminApplicationTests {
+class DevOpsMonControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,11 +24,8 @@ class DevopsmonAdminApplicationTests {
 
     @Test
     void givenEvent_whenSent_thenKafkaStored() throws Exception{
-        EventDto event = EventDto.builder()
-                .uuid(UUID.randomUUID())
-                .traceId("12345678")
-                .build();
-        mockMvc.perform(MockMvcRequestBuilders.post("/admin/create")
+        EventDto event = TestModelDtoFactory.createDefault();
+        mockMvc.perform(MockMvcRequestBuilders.post("/event/create")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(event)))
                 .andDo(MockMvcResultHandlers.print())

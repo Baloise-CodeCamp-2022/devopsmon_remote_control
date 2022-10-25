@@ -26,8 +26,8 @@
       "type": [
         "null",
         {
-          "type": "int",
-          "logicalType": "date"
+          "type": "long",
+          "logicalType": "local-timestamp-millis"
         }
       ]
     }

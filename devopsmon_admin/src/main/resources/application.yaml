@@ -15,11 +15,13 @@ spring:
     properties:
       schema:
         registry:
-          url: http://localhost:8081
+          url: http://localhost:9012
     consumer:
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
         specific.avro.reader: true
+    producer:
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
 
 devopsmon:
   kafka:
