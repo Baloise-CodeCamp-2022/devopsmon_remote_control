@@ -21,7 +21,7 @@ public class SituationDto {
     private String name;
 
     @Schema(description = "Identifier describing the user or system/ service sufficiently, that caused this event.",
-            example ="Service started",
+            example ="GWR monitor sidecar",
             required = true)
     private String initiator;
 
@@ -32,6 +32,6 @@ public class SituationDto {
     private LocalDateTime createdAt;
 
     @Schema(description = "Collection of tags that can be used to describe teh event in more detail, such as GWR, error, etc.",
-            example ="life-cycle, GWR")
+            example ="[\"life-cycle\", \"GWR\"]")
     private List<String> tags;
 }

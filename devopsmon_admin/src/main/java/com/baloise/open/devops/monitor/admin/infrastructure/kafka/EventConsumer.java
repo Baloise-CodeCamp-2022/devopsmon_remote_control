@@ -13,6 +13,6 @@ public class EventConsumer {
     @KafkaListener(id = "${devopsmon.kafka.client-id}", groupId = "${devopsmon.kafka.consumer-group}", topics = "${devopsmon.kafka.topic}")
     public void consumeEvent(ConsumerRecord<String, Event> record){
         Event event = record.value();
-        log.info("Event -> {} - {}", record.key(), event);
+        log.info("Consumed event -> key={} - event={}", record.key(), event);
     }
 }
