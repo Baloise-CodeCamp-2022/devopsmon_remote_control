@@ -9,13 +9,7 @@
         "type": "array",
         "items": {
           "name": "tag",
-          "type": "record",
-          "fields": [
-            {
-              "name": "name",
-              "type": "string"
-            }
-          ]
+          "type": "string"
         }
       }
     },
