@@ -17,7 +17,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @AutoConfigureMockMvc
 @EmbeddedKafka(partitions = 1,
-        brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
+        brokerProperties = {"listeners=PLAINTEXT://localhost:9092",
+                "port=9092"})
 @ActiveProfiles("local")
 class DevOpsMonControllerTest {
 
@@ -28,11 +29,11 @@ class DevOpsMonControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    void givenEvent_whenSent_thenKafkaStored() throws Exception{
+    void givenEvent_whenSent_thenKafkaStored() throws Exception {
         EventDto event = TestModelDtoFactory.createDefault();
         mockMvc.perform(MockMvcRequestBuilders.post("/event/create")
-                .contentType("application/json")
-                .content(objectMapper.writeValueAsString(event)))
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(event)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }

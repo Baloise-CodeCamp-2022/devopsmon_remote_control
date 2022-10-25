@@ -1,0 +1,6 @@
+spring:
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: mock://test_init
