@@ -28,7 +28,7 @@
       "type": "string"
     },
     {
-      "name": "archivedAt",
+      "name": "createdAt",
       "type": [
         "null",
         {
