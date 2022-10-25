@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+frame "DevOps Mon" {
+    [DevOpsMon Client] as [dom-client]
+
+    [DevOpsMon Control] as [dom-control]
+
+    [Policy Center] as [gwr-pc]
+    [Billing Center] as [gwr-bc]
+    [Claim Center] as [gwr-cc]
+    [Contact Manager] as [gwr-cm]
+
+    database "Kafka" {
+        frame "topics" {
+            [Events] as [topic]
+        }
+    }
+
+    [dom-client] --> [topic]
+    [topic] --> [dom-control]
+
+    [gwr-pc] --> [dom-client]
+    [gwr-bc] --> [dom-client]
+    [gwr-cc] --> [dom-client]
+    [gwr-cm] --> [dom-client]
+
+    [dom-control] --> [gwr-pc]
+    [dom-control] --> [gwr-bc]
+    [dom-control] --> [gwr-cc]
+    [dom-control] --> [gwr-cm]
+}
+
+@enduml
