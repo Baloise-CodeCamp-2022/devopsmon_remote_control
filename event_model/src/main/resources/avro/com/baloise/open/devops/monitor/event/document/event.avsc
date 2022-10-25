@@ -21,13 +21,18 @@
       "type": "Situation"
     },
     {
-      "name": "affected",
-      "type": "AffectedSystem"
+      "name": "affectedSystem",
+      "type": "System"
     }
     ,
     {
-      "name": "reported",
-      "type": "ReportingSystem"
+      "name": "reportingSystem",
+      "type": [
+        "null",
+        {
+          "type": "System"
+        }
+      ]
     },
     {
       "name": "specific",

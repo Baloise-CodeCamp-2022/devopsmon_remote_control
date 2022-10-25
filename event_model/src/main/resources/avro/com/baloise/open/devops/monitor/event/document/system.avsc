@@ -1,14 +1,10 @@
 {
-  "name": "AffectedSystem",
+  "name": "System",
   "namespace": "com.baloise.open.devops.monitor.event",
   "type": "record",
   "fields": [
     {
       "name": "instanceId",
-      "type": "string"
-    },
-    {
-      "name": "location",
       "type": "string"
     }
   ]

@@ -15,6 +15,6 @@ public class DevopsmonAdminController implements DevopsmonAdminApi {
 
     @PostMapping("/create")
     public void createEvent(@RequestBody EventDto event){
-        log.info("Created event with traceId={} and UUID={}.", event.getTraceId(), event.getId());
+        log.info("Created event with traceId={} and UUID={}.", event.getTraceId(), event.getUuid());
     }
 }

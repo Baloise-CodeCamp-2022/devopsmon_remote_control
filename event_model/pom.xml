@@ -36,8 +36,7 @@
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
                             <imports>
-                                <import>${project.basedir}/src/main/resources/avro/com/baloise/open/devops/monitor/event/document/affectedSystem.avsc</import>
-                                <import>${project.basedir}/src/main/resources/avro/com/baloise/open/devops/monitor/event/document/reportingSystem.avsc</import>
+                                <import>${project.basedir}/src/main/resources/avro/com/baloise/open/devops/monitor/event/document/system.avsc</import>
                                 <import>${project.basedir}/src/main/resources/avro/com/baloise/open/devops/monitor/event/document/situation.avsc</import>
                                 <import>${project.basedir}/src/main/resources/avro/com/baloise/open/devops/monitor/event/document/event.avsc</import>
                             </imports>

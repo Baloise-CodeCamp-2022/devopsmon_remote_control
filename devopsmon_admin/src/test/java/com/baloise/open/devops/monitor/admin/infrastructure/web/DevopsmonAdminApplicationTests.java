@@ -27,7 +27,7 @@ class DevopsmonAdminApplicationTests {
     @Test
     void givenEvent_whenSent_thenKafkaStored() throws Exception{
         EventDto event = EventDto.builder()
-                .id(UUID.randomUUID())
+                .uuid(UUID.randomUUID())
                 .traceId("12345678")
                 .build();
         mockMvc.perform(MockMvcRequestBuilders.post("/admin/create")

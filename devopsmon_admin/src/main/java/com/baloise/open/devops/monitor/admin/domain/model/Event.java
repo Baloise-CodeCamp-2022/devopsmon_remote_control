@@ -10,7 +10,7 @@ import java.util.UUID;
 @ToString
 @Builder()
 public class Event {
-    private UUID id;
+    private UUID uuid;
     private String traceId;
     private Situation situation;
     private System affectedSystem;
