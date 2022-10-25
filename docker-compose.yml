@@ -1,6 +1,37 @@
 ---
 version: '2'
 services:
+  prometheus:
+    image: prom/prometheus:v2.36.2
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    #      - pushgateway:pushgateway
+    #      - pushgateway
+    networks:
+      - kafka-net
+    restart: always
+  #    deploy:
+  #      placement:
+  #        constraints:
+  #          - node.hostname == ${HOSTNAME}
+
+  devopsmon:
+    container_name: devopsmon
+    hostname: devopsmon
+    image: devopsmon:latest
+    ports:
+      - 8080:8080
+    networks:
+      - kafka-net
+    restart: always
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.2.2
     hostname: zookeeper
@@ -27,7 +58,7 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -47,29 +78,7 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:29092
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:9012
+      SCHEMA_REGISTRY_LISTENERS: http://schema-registry:9012
 
-  akhq:
-    image: tchiotludo/akhq:0.22.0
-    container_name: akhq
-    ports:
-      - 9000:9000
-    networks:
-      - kafka-net
-    depends_on:
-      - kafka
-      - schema-registry
-    environment:
-      AKHQ_CONFIGURATION: |
-        micronaut:
-          server:
-            port: 9000
-        akhq:
-          connections:
-            kafka-localhost:
-              properties:
-                bootstrap.servers: "kafka:29092"
-              schema-registry:
-                url: "http://schema-registry:9012"
 networks:
   kafka-net: {}

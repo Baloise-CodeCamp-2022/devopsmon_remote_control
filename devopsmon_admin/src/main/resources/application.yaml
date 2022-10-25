@@ -11,11 +11,11 @@ springdoc:
 
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     properties:
       schema:
         registry:
-          url: http://localhost:9012
+          url: http://schema-registry:8081
     consumer:
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
@@ -28,3 +28,9 @@ devopsmon:
     client-id: "Admin"
     topic: "com.baloise.open.devops.event"
     consumer-group: "devopsmon-consumer"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
