@@ -1,16 +1,15 @@
-package com.baloise.open.devops.monitor.admin.infrastructure.simulation;
+package com.baloise.open.devops.monitor.client.infrastructure.web.simulation.scenario;
 
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.EventDto;
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.SituationDto;
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.SystemDto;
+import com.baloise.open.devops.monitor.client.infrastructure.web.simulation.Scenario;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 public class Scenarios {
     public static Scenario getServerRunScenario() {
@@ -34,26 +33,17 @@ public class Scenarios {
 
     static Supplier<EventDto> memoryEventSupplier = () -> createServerDto("reporter", "metric", null, String.valueOf(ThreadLocalRandom.current().nextInt(20, 80)), "infrastructure", "metric", "memory");
 
-    public static <T, R> Supplier<R> bind(Function<T, R> fn, T val) {
-        return () -> fn.apply(val);
-    }
-
-    public static Stream<EventDto> getInfiniteServerStream() {
-        Stream<EventDto> infiniteStream = Stream.generate(memoryEventSupplier);
-        return infiniteStream;
-    }
-
-    private static EventDto createServerDto(String reporterId, String name, String traceId, String specific, String... tag) {
+    private static EventDto createServerDto(String reporterId, String name, String traceId, String specific, String... tags) {
         return EventDto.builder()
                 .uuid(UUID.randomUUID())
                 .traceId(traceId)
                 .situation(SituationDto.builder()
                         .name(name)
-                        .tags(Arrays.asList(tag))
+                        .tags(Arrays.asList(tags))
                         .createdAt(LocalDateTime.now())
-                        .initiator("initiator").build())
+                        .initiator("GWR Sidecar").build())
                 .affectedSystem(SystemDto.builder()
-                        .instanceId("affected_instanceID")
+                        .instanceId("https://int-target.balgroupit.com/pc/PolicyCenter.do")
                         .build())
                 .reportingSystem(SystemDto.builder()
                         .instanceId(reporterId)

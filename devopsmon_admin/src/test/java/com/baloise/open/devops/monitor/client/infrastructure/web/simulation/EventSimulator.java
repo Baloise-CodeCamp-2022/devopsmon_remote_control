@@ -1,9 +1,11 @@
-package com.baloise.open.devops.monitor.admin.infrastructure.simulation;
+package com.baloise.open.devops.monitor.client.infrastructure.web.simulation;
 
 import com.baloise.open.devops.monitor.client.infrastructure.web.DevOpsMonController;
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.EventDto;
+import com.baloise.open.devops.monitor.client.infrastructure.web.simulation.scenario.Scenarios;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -18,6 +20,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Disabled
+@Slf4j
 public class EventSimulator {
     String endpoint = "http://localhost:8080/event/create";
     private static ObjectMapper mapper = new ObjectMapper();
@@ -32,7 +35,7 @@ public class EventSimulator {
 
     @Test
     @Disabled
-    public void simulate() throws IOException {
+    public void simulate() {
         simulate(Scenarios.getServerRunScenario());
         //simulate(Scenarios.getInfiniteServerStream());
     }
@@ -51,9 +54,9 @@ public class EventSimulator {
             postCall.setEntity(new StringEntity(mapper.writeValueAsString(event)));
             postCall.setHeader("Content-type", "application/json");
             HttpResponse response = client.execute(postCall);
-            System.out.println(response.getStatusLine().getStatusCode());
+            log.info("Executed scenarios with status code: {}", response.getStatusLine().getStatusCode());
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error("Scenario execution failed: {}", e);
         }
     }
 }
