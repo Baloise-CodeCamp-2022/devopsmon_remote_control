@@ -1,7 +1,14 @@
-### perform service call
+### perform service call 1
+http://localhost:8080/admin/service
+
+### perform service call 2
+http://localhost:8080/admin/service
+
+### perform service call 3
 http://localhost:8080/admin/service
 
 
 ### Modify fake CPU Usage
-http://localhost:8080/admin/cpu/20
+http://localhost:8080/admin/cpu/4
+
 

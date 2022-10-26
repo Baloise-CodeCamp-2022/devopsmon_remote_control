@@ -39,10 +39,12 @@ public class DevopsmonAdminController implements DevopsmonAdminApi {
   @Timed(value = "greeting.time", description = "Time taken to return greeting",
       percentiles = {0.5, 0.90})
   public void consumeService() throws InterruptedException {
-    int count = counter.getAndIncrement();
-    int delay = isIncreasedDelayRequired(count) ? getIncreasedDelay(count) : getDefaultDelay();
-    Thread.sleep(delay);
-    log.info("Created event with traceId={} and UUID={}.");
+    Thread.sleep(getCpuUsageBasedDelay());
+    log.info("Consumed service {} times.", counter.incrementAndGet());
+  }
+
+  long getCpuUsageBasedDelay() {
+    return cpu.get() * 100L;
   }
 
   @GetMapping("/cpu/{usage}")

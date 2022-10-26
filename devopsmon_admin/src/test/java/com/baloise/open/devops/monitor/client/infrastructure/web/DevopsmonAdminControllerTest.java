@@ -8,6 +8,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DevopsmonAdminControllerTest {
 
+
+  @Test
+  void cpuBasedDaley() {
+    DevopsmonAdminController testee = new DevopsmonAdminController();
+    assertEquals(500L, testee.getCpuUsageBasedDelay());
+    testee.setCpuUsage(0);
+    assertEquals(0L, testee.getCpuUsageBasedDelay());
+    testee.setCpuUsage(1);
+    assertEquals(100L, testee.getCpuUsageBasedDelay());
+    testee.setCpuUsage(20);
+    assertEquals(2000L, testee.getCpuUsageBasedDelay());
+    testee.setCpuUsage(99);
+    assertEquals(9900L, testee.getCpuUsageBasedDelay());
+  }
+
   @Test
   void defaultDelayTest() {
     IntStream.of(150).forEach(x -> {
