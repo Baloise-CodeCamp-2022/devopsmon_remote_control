@@ -10,6 +10,8 @@ Basic repository for devops monitoring remote control
 ## devopsmon-admin
 Can be accessed using http://localhost:8080/swagger-ui/index.html.
 
+# devopsmon-controller
+[Drools](https://docs.drools.org/8.29.0.Final/drools-docs/docs-website/drools/introduction/index.html)
 
 ## docker-compose
 Provides required environment with all components for the project (e.g., Kafka)
