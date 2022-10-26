@@ -7,8 +7,15 @@ import com.baloise.open.devops.monitor.controller.domain.model.Situation
 
 rule "Guidewire System Event Detection"
     when
-        event : Event()
-        situation : Situation(tags.contains("GWR"))
+        $event : Event( situation.tags.contains("GWR"))
     then
-      	log.log("Event concerning Guidewire system: {}", event.getUuid());
+      	log.log("Event concerning Guidewire system: {}", $event.getUuid());
+end
+
+rule "Detect Instance-ID"
+    when
+        $event : Event($instanceId:affectedSystem.instanceId
+                        && $instanceId.matches("https://(int-|test-|acc-)?target.balgroupit.com/(pc|bc|cc|ab)/.*"))
+    then
+        log.log("GWR-Instance ID: {}", $instanceId);
 end
