@@ -196,6 +196,7 @@
                 </configuration>
             </plugin>
             <plugin>
+                <!-- https://medium.com/swlh/build-a-docker-image-using-maven-and-spring-boot-58147045a400 -->
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.13</version>
