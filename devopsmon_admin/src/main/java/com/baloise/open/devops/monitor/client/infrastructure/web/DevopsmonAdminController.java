@@ -29,10 +29,8 @@ public class DevopsmonAdminController implements DevopsmonAdminApi {
   }
 
   @PostMapping("/create")
-  @Timed(value = "greeting.time", description = "Time taken to return greeting",
-      percentiles = {0.5, 0.90})
-  public void createEvent(@RequestBody EventDto event) {
-    log.info("Created event with traceId={} and UUID={}.", event.getTraceId(), event.getUuid());
+  public void createEvent(@RequestBody String event) {
+    log.info("received alert from alertmanager: {}.", event);
   }
 
   @GetMapping("/service")

@@ -3,11 +3,11 @@ groups:
     rules:
       - alert: DummyAlert
         # Condition for alerting
-        expr: jvm_buffer_memory_used_bytes
-        for: 1m
+        expr: max by (instance) (greeting_time_seconds) >= 3 and max by (instance) (custom_fake_cpu_usage) >= 75
+        for: 1s
         # Annotation - additional informational labels to store more information
         annotations:
-          title: 'Instance {{ $labels.instance }} down'
+          title: 'Service issue on {{ $labels.instance }}'
           description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minute.'
         # Labels - additional labels to be attached to the alert
         labels:
