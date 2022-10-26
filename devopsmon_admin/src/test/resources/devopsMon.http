@@ -1,1 +1,7 @@
-http://localhost:8080/admin/blubb
+### perform service call
+http://localhost:8080/admin/service
+
+
+### Modify fake CPU Usage
+http://localhost:8080/admin/cpu/20
+

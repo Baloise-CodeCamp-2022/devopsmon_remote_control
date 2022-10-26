@@ -1,0 +1,36 @@
+springdoc:
+  api-info:
+    title: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    contact.name: DevopsMonitor Team
+    contact.email: tbd
+    contact.url: https://github.com/orgs/Baloise-CodeCamp-2022/projects/1/views/1
+    header.audience: public
+    header.api-id: tbd
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+    consumer:
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        specific.avro.reader: true
+    producer:
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+devopsmon:
+  kafka:
+    client-id: "Admin"
+    topic: "com.baloise.open.devops.event"
+    consumer-group: "devopsmon-consumer"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
