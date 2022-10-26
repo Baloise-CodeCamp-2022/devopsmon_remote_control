@@ -25,7 +25,7 @@ services:
   devopsmon:
     container_name: devopsmon
     hostname: devopsmon
-    image: devopsmon:latest
+    image: devopsmon-admin:latest
     ports:
       - 8080:8080
     networks:

@@ -15,7 +15,7 @@ public class DevopsmonAdminController implements DevopsmonAdminApi {
     @Timed(value = "greeting.time", description = "Time taken to return greeting",
         percentiles = {0.5, 0.90})
     public void createEvent(@RequestBody EventDto event){
-        log.info("Created event with traceId={} and UUID={}.", event.getTraceId(), event.getId());
+        log.info("Created event with traceId={} and UUID={}.", event.getTraceId(), event.getUuid());
     }
     @GetMapping("/blubb")
     @Timed(value = "greeting.time", description = "Time taken to return greeting",
