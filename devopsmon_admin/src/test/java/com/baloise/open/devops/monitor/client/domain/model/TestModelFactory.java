@@ -1,9 +1,5 @@
 package com.baloise.open.devops.monitor.client.domain.model;
 
-import com.baloise.open.devops.monitor.admin.domain.model.Event;
-import com.baloise.open.devops.monitor.admin.domain.model.Situation;
-import com.baloise.open.devops.monitor.admin.domain.model.System;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.UUID;

@@ -3,11 +3,12 @@ package rules
 global com.baloise.open.devops.monitor.controller.infrastructure.drools.LogFactory log
 
 import com.baloise.open.devops.monitor.controller.domain.model.Event
+import com.baloise.open.devops.monitor.controller.domain.model.Situation
 
-rule "Guidewire System Detection"
+rule "Guidewire System Event Detection"
     when
-        event : Event( situation.tags.contains("GWR"))
-
+        event : Event()
+        situation : Situation(tags.contains("GWR"))
     then
       	log.log("Event concerning Guidewire system: {}", event.getUuid());
 end
