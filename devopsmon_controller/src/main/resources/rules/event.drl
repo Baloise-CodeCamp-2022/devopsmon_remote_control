@@ -8,5 +8,5 @@ rule "React on Name"
         event: Event($situation : situation, situation.initiator == "ane");
 
     then
-      	log.log("Found God: {}", $situation.getInitiator());
+      	log.info("Found God: {}", $situation.getInitiator());
 end

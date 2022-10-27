@@ -9,7 +9,7 @@ rule "Guidewire System Event Detection"
     when
         $event : Event( situation.tags.contains("GWR"))
     then
-      	log.log("Event concerning Guidewire system: {}", $event.getUuid());
+      	log.info("Event concerning Guidewire system: {}", $event.getUuid());
 end
 
 rule "Detect Instance-ID"
@@ -17,5 +17,5 @@ rule "Detect Instance-ID"
         $event : Event($instanceId:affectedSystem.instanceId
                         && $instanceId.matches("https://(int-|test-|acc-)?target.balgroupit.com/(pc|bc|cc|ab)/.*"))
     then
-        log.log("GWR-Instance ID: {}", $instanceId);
+        log.info("GWR-Instance ID: {}", $instanceId);
 end
