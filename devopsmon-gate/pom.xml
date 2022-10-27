@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.baloise.open.devops</groupId>
-    <artifactId>devopsmon-admin</artifactId>
+    <artifactId>devopsmon-gate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>devopsmon_admin</name>
-    <description>devopsmon_admin</description>
+    <name>devopsmon-gate</name>
+    <description>devopsmon-gate</description>
 
     <properties>
         <java.version>17</java.version>

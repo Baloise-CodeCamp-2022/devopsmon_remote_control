@@ -7,7 +7,7 @@
 # devopsmon_remote_control
 Basic repository for devops monitoring remote control
 
-## devopsmon-admin
+## devopsmon-gate
 Can be accessed using http://localhost:8080/swagger-ui/index.html.
 
 # devopsmon-controller
