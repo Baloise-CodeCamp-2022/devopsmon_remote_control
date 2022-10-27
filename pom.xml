@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
+        <module>event-model</module>
         <module>devopsmon-gate</module>
-        <module>event_model</module>
-        <module>devopsmon_controller</module>
+        <module>devopsmon-controller</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
