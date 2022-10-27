@@ -3,7 +3,6 @@ package com.baloise.open.devops.monitor.client.infrastructure.web.simulation.sce
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.EventDto;
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.SituationDto;
 import com.baloise.open.devops.monitor.client.infrastructure.web.model.SystemDto;
-import com.baloise.open.devops.monitor.client.infrastructure.web.simulation.Scenario;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

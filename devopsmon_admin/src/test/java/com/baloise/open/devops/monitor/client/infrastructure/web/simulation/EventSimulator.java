@@ -36,7 +36,7 @@ public class EventSimulator {
     @Test
     @Disabled
     public void simulate() {
-        simulate(Scenarios.getServerRunScenario());
+        CPUSimulation.getCpuSimulation().process((aEvent) -> send((EventDto) aEvent));
         //simulate(Scenarios.getInfiniteServerStream());
     }
 

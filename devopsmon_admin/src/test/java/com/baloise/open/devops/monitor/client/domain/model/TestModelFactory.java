@@ -24,4 +24,22 @@ public class TestModelFactory {
                         .build())
                 .build();
     }
+    public static Event createDefault(String name,String traceId,String initiator,String instanceId,String... tags) {
+        return Event.builder()
+                .uuid(UUID.randomUUID())
+                .traceId(traceId)
+                .situation(Situation.builder()
+                        .createdAt(LocalDateTime.now())
+                        .initiator(initiator)
+                        .name(name)
+                        .tags(Arrays.asList(tags))
+                        .build())
+                .affectedSystem(System.builder()
+                        .instanceId(instanceId)
+                        .build())
+                .reportingSystem(System.builder()
+                        .instanceId(instanceId)
+                        .build())
+                .build();
+    }
 }
