@@ -74,6 +74,20 @@ If you like to use the Kafka or Zookeeper binary tools you have to download them
     - Doing the aggregation of the logging on our own with kafka streams
     - Not use micrometer since we can not easily log into kafka
 
+# Micrometer & Prometheus
+
+We build a small demo application to test the integration of micrometer and prometheus. 
+The application is a simple spring boot application which exposes a rest endpoint to 
+trigger a counter. The counter is exposed to prometheus via micrometer. 
+The application is build as docker during the maven build process and started in the 
+docker compose call.
+
+The alert we want to raise is based on custom metrics which are exposed via micrometer.
+```promQL
+max by (instance) (greeting_time_seconds) >= 3 and max by (instance) (custom_fake_cpu_usage) >= 75
+```
+
+
 # References
 - [Confluentic Info][Confluentic Info]
 - [Kafka Connect REST API][Kafka Connect REST API]

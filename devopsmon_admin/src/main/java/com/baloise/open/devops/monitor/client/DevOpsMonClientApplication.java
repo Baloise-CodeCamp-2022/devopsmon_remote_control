@@ -1,7 +1,10 @@
 package com.baloise.open.devops.monitor.client;
 
+import io.micrometer.core.aop.TimedAspect;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class DevOpsMonClientApplication {
@@ -10,4 +13,8 @@ public class DevOpsMonClientApplication {
         SpringApplication.run(DevOpsMonClientApplication.class, args);
     }
 
+    @Bean
+    public TimedAspect timedAspect(MeterRegistry registry) {
+        return new TimedAspect(registry);
+    }
 }
