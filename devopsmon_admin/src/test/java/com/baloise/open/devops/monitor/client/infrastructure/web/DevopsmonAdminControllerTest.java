@@ -1,5 +1,6 @@
-package com.baloise.open.devops.monitor.admin.infrastructure.web;
+package com.baloise.open.devops.monitor.client.infrastructure.web;
 
+import com.baloise.open.devops.monitor.client.infrastructure.web.DevopsmonAdminController;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;

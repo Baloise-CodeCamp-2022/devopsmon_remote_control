@@ -1,7 +1,6 @@
-package com.baloise.open.devops.monitor.admin.infrastructure.web;
+package com.baloise.open.devops.monitor.client.infrastructure.web;
 
-import com.baloise.open.devops.monitor.admin.infrastructure.web.model.EventDto;
-import com.baloise.open.devops.monitor.admin.infrastructure.web.openapi.DevopsmonAdminApi;
+import com.baloise.open.devops.monitor.client.infrastructure.web.openapi.DevopsmonAdminApi;
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.Metrics;
