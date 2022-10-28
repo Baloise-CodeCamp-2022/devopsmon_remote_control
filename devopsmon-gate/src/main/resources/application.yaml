@@ -1,3 +1,6 @@
+server:
+  port: 8110
+
 springdoc:
   api-info:
     title: "@project.name@"
