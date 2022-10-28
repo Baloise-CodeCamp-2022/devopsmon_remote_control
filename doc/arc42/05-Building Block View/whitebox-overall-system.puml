@@ -2,9 +2,28 @@
 'https://plantuml.com/component-diagram
 
 frame "DevOps Mon" {
-    [DevOpsMon Client] as [dom-client]
+    [Prometheus] as [prometheus]
+    frame "Any Component"{
+        [Micrometer] as [micrometer]
+    }
 
-    [DevOpsMon Control] as [dom-control]
+    [DevOpsMon Gate] as [dom-gate]
+
+    frame "Control"{
+        [DevOpsMon Control] as [dom-control]
+        [Rule Engine] as [rule-eng]
+
+        [dom-control] --> [rule-eng] : process\nevents
+    }
+
+    frame "Workflow"{
+        [DevOpsMon Workflow] as [dom-workflow]
+        [Decision WF] as [decision-wf]
+        [Action WF] as [action-wf]
+
+        [dom-workflow] --> [decision-wf]
+        [dom-workflow] --> [action-wf]
+    }
 
     [Policy Center] as [gwr-pc]
     [Billing Center] as [gwr-bc]
@@ -13,22 +32,28 @@ frame "DevOps Mon" {
 
     database "Kafka" {
         frame "topics" {
-            [Events] as [topic]
+            [Events] as [event]
+            [Recommended\nAction] as [recommended-action]
         }
     }
 
-    [dom-client] --> [topic]
-    [topic] --> [dom-control]
+    [micrometer] --> [prometheus] : provide\nmetrics
+    [prometheus] --> [dom-gate] : provide\nalert
 
-    [gwr-pc] --> [dom-client]
-    [gwr-bc] --> [dom-client]
-    [gwr-cc] --> [dom-client]
-    [gwr-cm] --> [dom-client]
+    [dom-gate] --> [event] : publish\nevent
+    [event] --> [dom-control] : consume\nevent
 
-    [dom-control] --> [gwr-pc]
-    [dom-control] --> [gwr-bc]
-    [dom-control] --> [gwr-cc]
-    [dom-control] --> [gwr-cm]
+    [dom-control] --> [recommended-action] : publish\nevent
+    [recommended-action] --> [dom-workflow] : consume\nevent
+
+    [gwr-pc] --> [dom-gate] : produce\nevent
+    [gwr-bc] --> [dom-gate] : produce\nevent
+    [gwr-cc] --> [dom-gate] : produce\nevent
+    [gwr-cm] --> [dom-gate] : produce\nevent
+
+    [dom-workflow] --> [gwr-pc] : action
+    [dom-workflow] --> [gwr-bc] : action
+    [dom-workflow] --> [gwr-cc] : action
+    [dom-workflow] --> [gwr-cm] : action
 }
-
 @enduml
