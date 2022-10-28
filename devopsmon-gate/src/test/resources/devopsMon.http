@@ -9,6 +9,14 @@ http://localhost:8080/admin/service
 
 
 ### Modify fake CPU Usage
-http://localhost:8080/admin/cpu/4
+http://localhost:8080/admin/cpu/75
 
 
+### receive prometheus alert
+POST http://localhost:8080/event/create/prometheus
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
