@@ -11,7 +11,7 @@
     <groupId>com.baloise.open.devops</groupId>
     <artifactId>devopsmon-gate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>devopsmon-gate</name>
+    <name>DevOpsMon Gate</name>
     <description>devopsmon-gate</description>
 
     <properties>
