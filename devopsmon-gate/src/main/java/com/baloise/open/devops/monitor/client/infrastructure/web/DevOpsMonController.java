@@ -29,4 +29,10 @@ public class DevOpsMonController implements DevopsmonAdminApi {
     public void createEvent(@RequestBody EventDto event) {
         publisher.publishEvent(UUID.randomUUID().toString(), DtoToEventMapper.INSTANCE.map(event));
     }
+
+    @PostMapping("/create/prometheus")
+    public void getPrometheusAlert(@RequestBody String event) {
+        log.info("received alert from alertmanager: {}.", event);
+    }
+
 }

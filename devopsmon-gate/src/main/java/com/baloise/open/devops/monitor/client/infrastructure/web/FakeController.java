@@ -18,18 +18,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RestController
 @RequestMapping("/admin")
 @Slf4j
-public class DevopsmonAdminController implements DevopsmonAdminApi {
+public class FakeController implements DevopsmonAdminApi {
 
   private static AtomicInteger counter = new AtomicInteger(0);
   private static AtomicInteger cpu = new AtomicInteger(5);
 
-  public DevopsmonAdminController() {
+  public FakeController() {
     registerCpuGauge();
-  }
-
-  @PostMapping("/create")
-  public void createEvent(@RequestBody String event) {
-    log.info("received alert from alertmanager: {}.", event);
   }
 
   @GetMapping("/service")
@@ -62,10 +57,6 @@ public class DevopsmonAdminController implements DevopsmonAdminApi {
 
   static boolean isIncreasedDelayRequired(int count) {
     return count % 5 == 0 || count % 6 == 0 || count % 7 == 0 || count % 8 == 0;
-  }
-
-  static int getIncreasedDelay(int count) {
-    return 2000 + count * 100;
   }
 
   // create random integer between 0 and 1000

@@ -1,0 +1,12 @@
+package rules
+
+global com.baloise.open.devops.monitor.controller.infrastructure.drools.LogFactory log
+import com.baloise.open.devops.monitor.controller.domain.model.Event
+
+rule "React on Name"
+    when
+        event: Event($situation : situation, situation.initiator == "ane");
+
+    then
+      	log.info("Found God: {}", $situation.getInitiator());
+end

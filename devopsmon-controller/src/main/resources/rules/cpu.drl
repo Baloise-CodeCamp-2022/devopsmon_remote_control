@@ -1,0 +1,39 @@
+package rules
+
+global com.baloise.open.devops.monitor.controller.infrastructure.drools.LogFactory log
+global com.baloise.open.devops.monitor.controller.infrastructure.drools.mapper.SpecificMapper mapper
+
+import com.baloise.open.devops.monitor.controller.domain.model.Event
+import com.baloise.open.devops.monitor.controller.infrastructure.drools.model.CpuSaturation
+
+declare CpuConsumption
+    value : Integer
+end
+
+rule "CPU Consumption"
+    when
+        event: Event(situation.name == "CPU consumption" && $specific:specific)
+    then
+        insert(mapper.getCpuSaturation($specific));
+end
+
+rule "CPU Consumption exceeds threshold"
+    when
+        cpuSaturation : CpuSaturation( value >= criticalThreshold)
+    then
+      	log.error("Found critical CPU saturation: {}", cpuSaturation);
+end
+
+rule "CPU Consumption Warn Level"
+    when
+        cpuSaturation : CpuSaturation( value >= warnThreshold && value < criticalThreshold)
+    then
+      	log.warn("Found CPU saturation impact: {}", cpuSaturation);
+end
+
+rule "CPU Consumption OK"
+    when
+        cpuSaturation : CpuSaturation( value < warnThreshold)
+    then
+      	log.info("Found cool CPU situation: {}", cpuSaturation);
+end
