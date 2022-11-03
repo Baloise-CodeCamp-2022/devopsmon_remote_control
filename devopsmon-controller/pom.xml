@@ -75,7 +75,7 @@
         <!-- Project -->
         <dependency>
             <groupId>com.baloise.open.devops</groupId>
-            <artifactId>event_model</artifactId>
+            <artifactId>event-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
