@@ -33,6 +33,7 @@ public class DevOpsMonController implements DevopsmonAdminApi {
     @PostMapping("/create/prometheus")
     public void getPrometheusAlert(@RequestBody String event) {
         log.info("received alert from alertmanager: {}.", event);
+        //TODO: transform into kafka event and puplish in related topic
     }
 
 }

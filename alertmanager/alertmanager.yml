@@ -6,8 +6,8 @@ global:
   #smtp_auth_password: 'password'
 
   # Custom Webhook URL
-  http_config:
-    proxy_url: 'http://devopsmon:8080/event/create/prometheus'
+  #http_config:
+  #  proxy_url: 'http://devopsmon:8080/event/create/prometheus'
 
 # The directory from which notification templates are read.
 #templates:
@@ -24,7 +24,7 @@ route:
   # alerts as-is. This is unlikely to be what you want, unless you have
   # a very low alert volume or your upstream notification system performs
   # its own grouping. Example: group_by: [...]
-  group_by: ['alertname', 'cluster', 'service']
+  group_by: [...]
 
   # When a new group of alerts is created by an incoming alert, wait at
   # least 'group_wait' to send the initial notification.

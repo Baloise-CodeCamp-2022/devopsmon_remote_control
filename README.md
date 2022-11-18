@@ -87,6 +87,17 @@ The alert we want to raise is based on custom metrics which are exposed via micr
 max by (instance) (greeting_time_seconds) >= 3 and max by (instance) (custom_fake_cpu_usage) >= 75
 ```
 
+## Alertmanager
+A useful tool to view config or test alerting routes is alertmanagers
+[amtool](https://github.com/prometheus/alertmanager#amtool).
+Connect to running container in interactive mode to make use of it.
+
+Examples:
+```
+amtool config routes show --alertmanager.url http://localhost:9093
+
+amtool alert add this-is-a-test-alert --alertmanager.url http://localhost:9093
+```
 
 # References
 - [Confluentic Info][Confluentic Info]
