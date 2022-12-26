@@ -26,7 +26,7 @@ services:
     hostname: devopsmon
     image: devopsmon-gate:latest
     ports:
-      - 8080:8080
+      - 8080:8110
     restart: always
 
   zookeeper:
