@@ -4,7 +4,7 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Baloise-CodeCamp-2022_devopsmon_remote_control&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Baloise-CodeCamp-2022_devopsmon_remote_control)
 [![Vulnerabilities](https://lift.sonatype.com/api/badge/github.com/Baloise-CodeCamp-2022/devopsmon_remote_control)](https://lift.sonatype.com/results/github.com/Baloise-CodeCamp-2022/devopsmon_remote_control/)
 
-# devopsmon_remote_control
+# Devops Monitoring - Remote Controle
 Basic repository for devops monitoring remote control
 
 ## devopsmon-gate
